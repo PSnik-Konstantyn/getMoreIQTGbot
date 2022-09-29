@@ -33,7 +33,7 @@ public class IQGameController {
 
                     Long playerId = update.message().from().id();
                     Long chatId = update.message().chat().id();
-                    int newAttempts = 3;
+                    int newAttempts = 10;
                     String playerName = update.message().from().firstName();
                     String playerMessageText = update.message().text();
                     String uniquePlayerID = ((playerId.toString()) + "_" + (chatId.toString()));
@@ -49,6 +49,8 @@ public class IQGameController {
                         newPlayer.setChatId(chatId);
                         newPlayer.setUserFirstName(playerName);
                         newPlayer.setCanAnswer(false);
+                        newPlayer.setAllAnswers(0);
+                        newPlayer.setCorrectAnswers(0);
                         newPlayer.setAttemptCounter(newAttempts);
                         newPlayer.setIqCounter(startIq.nextInt(30));
                         try {
@@ -68,7 +70,9 @@ public class IQGameController {
                                 + "Так, якщо ти відповіси правильно, то твій IQ збільшиться \n"
                                 + "Якщо неправильно, то ти втратишь вже отримане \n"
                                 + "Гарної гри!"));
-                    } else if (playerMessageText.equals("/rulesIQGame") || playerMessageText.equals("/rulesIQGame@KostiasBot")) {
+                    }
+
+                    else if (playerMessageText.equals("/rulesIQGame") || playerMessageText.equals("/rulesIQGame@KostiasBot")) {
                         bot.execute(new SendMessage(chatId,
                                 """
                                         Вводи команду /getMoreIQ та отримуй рівняння\s
@@ -76,18 +80,87 @@ public class IQGameController {
                                         Та отримуй винагороду у вигляді IQ! \s
                                         Якщо неправильно, то ти втратишь вже отримане!\s
                                         """));
-                    } else if (playerMessageText.equals("/help") || playerMessageText.equals("/help@KostiasBot")) {
+                    }
+
+                    else if (playerMessageText.equals("/help") || playerMessageText.equals("/help@KostiasBot")) {
                         bot.execute(new SendMessage(chatId,
                                 """
                                         /getMoreIQ - збільшити свій IQ\s
                                         /rulesIQGame - правила гри \s
                                         /myIQ - ваша кількість IQ\s
+                                        /myAccuracy - відсоток правильних відповідей \s
                                         /listAllPlayers - список всіх гравців\s
-                                        /top10Players - топ 10 найрозумніших\s
+                                        /top10Smartest - топ 10 найрозумніших \s
+                                        /top10CorrectAnswers - топ 10 по правильним відповідям \s
                                         """));
-                    } else if (playerMessageText.equals("/listAllPlayers") || playerMessageText.equals("/listAllPlayers@KostiasBot")) {
+                    }
 
-                        // TO DO: What if IQ of two players is equal ,
+                    else if (playerMessageText.equals("/myAccuracy") || playerMessageText.equals("/myAccuracy@KostiasBot")) {
+
+                       PlayerInfo currentPlayer = players.get(uniquePlayerID);
+                       int allAnswers = currentPlayer.getAllAnswered();
+                       int correctAnswers = currentPlayer.getCorrectAnswers();
+                       String accuracyPercent = String.valueOf(((correctAnswers * 100 )  / allAnswers));
+                        bot.execute(new SendMessage(chatId,
+                                playerName + " твоя правильність відповідей = " + accuracyPercent+"%"));
+
+                    }
+
+                    else if (playerMessageText.equals("/top10CorrectAnswers") || playerMessageText.equals("/top10CorrectAnswers@KostiasBot")) {
+
+                        Map<Integer, String> listPlayersMap = new HashMap<>();
+                        players.forEach((id, playerInfo) -> {
+                            if (Objects.equals(playerInfo.getChatId(), chatId)) {
+                                listPlayersMap.put( playerInfo.getCorrectAnswers() , playerInfo.getUserFirstName());
+                            }
+                        });
+
+                        ArrayList<Integer> CorrectAnswersValues = new ArrayList<>(listPlayersMap.keySet());
+                        ArrayList<Integer> repeatableValues = new ArrayList<>();
+
+                        for (int i = 1; i < CorrectAnswersValues.size(); i++) {
+                            int compElement = CorrectAnswersValues.get(i);
+                            for (int j = 0; j < CorrectAnswersValues.size(); j++) {
+                                int secondCompElement = CorrectAnswersValues.size();
+                                if (compElement == secondCompElement) {
+                                    CorrectAnswersValues.remove(j);
+                                    CorrectAnswersValues.set(j, secondCompElement+1);
+                                    repeatableValues.add(secondCompElement+1);
+                                    i = 0;
+                                    j = 0;
+                                }
+                            }
+                        }
+
+                        Collections.sort(CorrectAnswersValues);
+                        Collections.reverse(CorrectAnswersValues);
+
+                        if (CorrectAnswersValues.size() >= 10) {
+                            CorrectAnswersValues.subList(0, 9);
+                            String finalList = "Список найрозумніших: \n";
+                            for (int i = 1; i <= CorrectAnswersValues.size(); i++) {
+                                if (repeatableValues.contains(CorrectAnswersValues.get((i-1)))){
+                                    String newRow = i + ".  " + listPlayersMap.get(CorrectAnswersValues.get((i - 1)))  + " розв'язав(ла) " + ((CorrectAnswersValues.get((i - 1)))-1) + " прикладів \n";
+                                    finalList = finalList + newRow;
+                                    System.out.println(newRow);
+                                } else {
+                                    String newRow = i + ".  " + listPlayersMap.get(CorrectAnswersValues.get((i - 1))) + " розв'язав(ла) " + CorrectAnswersValues.get((i - 1)) + " прикладів \n";
+                                    finalList = finalList + newRow;
+                                    System.out.println(newRow);
+                                }
+                            }
+
+                            bot.execute(new SendMessage(chatId,
+                                    finalList
+                            ));
+                        } else {
+                            bot.execute(new SendMessage(chatId,
+                                    playerName + " для початку збери 10 гравців, а потім вже будуть такі рейтинги"
+                            ));
+                        }
+                    }
+
+                    else if (playerMessageText.equals("/listAllPlayers") || playerMessageText.equals("/listAllPlayers@KostiasBot")) {
 
                         Map<Integer, String> listPlayersMap = new HashMap<>();
                         players.forEach((id, playerInfo) -> {
@@ -133,7 +206,9 @@ public class IQGameController {
                                 finalList
                         ));
 
-                    } else if (playerMessageText.equals("/top10Players") || playerMessageText.equals("/top10Players@KostiasBot")) {
+                    }
+
+                    else if (playerMessageText.equals("/top10Smartest") || playerMessageText.equals("/top10Smartest@KostiasBot")) {
 
                         Map<Integer, String> listPlayersMap = new HashMap<>();
                         players.forEach((id, playerInfo) -> {
@@ -143,16 +218,36 @@ public class IQGameController {
                         });
 
                         ArrayList<Integer> IQValues = new ArrayList<>(listPlayersMap.keySet());
+                        ArrayList<Integer> repeatableValues = new ArrayList<>();
+
+                        for (int i = 1; i < IQValues.size(); i++) {
+                            int compElement = IQValues.get(i);
+                            for (int j = 0; j < IQValues.size(); j++) {
+                                int secondCompElement = IQValues.size();
+                                if (compElement == secondCompElement) {
+                                    IQValues.remove(j);
+                                    IQValues.set(j, secondCompElement+1);
+                                    repeatableValues.add(secondCompElement+1);
+                                    i = 0;
+                                    j = 0;
+                                }
+                            }
+                        }
                         Collections.sort(IQValues);
                         Collections.reverse(IQValues);
                         if (IQValues.size() >= 10) {
                             IQValues.subList(0, 9);
                             String finalList = "Список гравців чату: \n";
                             for (int i = 1; i <= IQValues.size(); i++) {
-                                System.out.println(i);
-                                String newRow = i + ".  " + listPlayersMap.get(IQValues.get((i - 1))) + " = " + IQValues.get((i - 1)) + "IQ \n";
-                                finalList = finalList + newRow;
-                                System.out.println(newRow);
+                                if (repeatableValues.contains(IQValues.get((i-1)))){
+                                    String newRow = i + ".  " + listPlayersMap.get(IQValues.get((i - 1)))  + " = " + ((IQValues.get((i - 1)))-1) + "IQ \n";
+                                    finalList = finalList + newRow;
+                                    System.out.println(newRow);
+                                } else {
+                                    String newRow = i + ".  " + listPlayersMap.get(IQValues.get((i - 1))) + " = " + IQValues.get((i - 1)) + "IQ \n";
+                                    finalList = finalList + newRow;
+                                    System.out.println(newRow);
+                                }
                             }
 
                             bot.execute(new SendMessage(chatId,
@@ -163,14 +258,16 @@ public class IQGameController {
                                     playerName + " для початку збери 10 гравців, а потім вже будуть такі рейтинги"
                             ));
                         }
-
                     }
+
                     else if (playerMessageText.equals("/myIQ") || playerMessageText.equals("/myIQ@KostiasBot")) {
                         PlayerInfo currentPlayer = players.get(uniquePlayerID);
                         bot.execute(new SendMessage(chatId,
                                 "Зараз," + playerName + " ,твій IQ: " + currentPlayer.getIqCounter() + " \n"
                         ));
-                    } else if (playerMessageText.equals("/getMoreIQ") || playerMessageText.equals("/getMoreIQ@KostiasBot")) {
+                    }
+
+                    else if (playerMessageText.equals("/getMoreIQ") || playerMessageText.equals("/getMoreIQ@KostiasBot")) {
                         PlayerInfo currentPlayer = players.get(uniquePlayerID);
                         Long currentPlayerId = currentPlayer.getPlayerId();
                         Date lastTimePlusOneDay = DateUtil.addDays(currentPlayer.getLastTimePlayed(), 1);
@@ -184,6 +281,8 @@ public class IQGameController {
                             updatedPlayer.setIqCounter(currentPlayer.getIqCounter());
                             updatedPlayer.setUserFirstName(playerName);
                             updatedPlayer.setAttemptCounter(newAttempts);
+                            updatedPlayer.setAllAnswers(currentPlayer.getAllAnswered());
+                            updatedPlayer.setCorrectAnswers(currentPlayer.getCorrectAnswers());
                             updatedPlayer.setCanAnswer(true);
                             updatedPlayer.setLastTimePlayed(currentDate);
                             players.replace(uniquePlayerID, currentPlayer, updatedPlayer);
@@ -218,6 +317,8 @@ public class IQGameController {
                             updatedPlayer.setIqCounter(currentPlayer.getIqCounter());
                             updatedPlayer.setUserFirstName(playerName);
                             updatedPlayer.setAttemptCounter(currentPlayer.getAttemptCounter());
+                            updatedPlayer.setAllAnswers(currentPlayer.getAllAnswered());
+                            updatedPlayer.setCorrectAnswers(currentPlayer.getCorrectAnswers());
                             updatedPlayer.setCanAnswer(true);
                             updatedPlayer.setLastTimePlayed(currentDate);
                             players.replace(uniquePlayerID, currentPlayer, updatedPlayer);
@@ -227,7 +328,9 @@ public class IQGameController {
                                     playerName + ", ти сьогодні вже грав. Спроби вичерпано!"));
                         }
 
-                    } else if (
+                    }
+
+                    else if (
                             players.get(uniquePlayerID).isCanAnswer()
                                     && answers.containsKey(uniquePlayerID)
                                     && answers.get(uniquePlayerID) != null
@@ -266,12 +369,14 @@ public class IQGameController {
                         int moreIQ;
                         int plusIQ = addingIQ.nextInt(10);
                         int minusIQ = addingIQ.nextInt(6);
+                        int ifAnswerIsCorrect = 0;
                         int rightAnswer = answers.get(uniquePlayerID);
                         if (parseInt(playerMessageText) == rightAnswer) {
                             moreIQ = plusIQ;
                             bot.execute(new SendMessage(chatId, "Вітаю, " + playerName + "! Відповідь правильна! \n"
                                     + "Твій IQ збільшився на " + moreIQ + ". Тепер твій IQ становить: " + (currentPlayer.getIqCounter() + moreIQ)));
                             answers.replace(uniquePlayerID, rightAnswer, null);
+                            ifAnswerIsCorrect++;
                         } else {
                             moreIQ = -minusIQ;
                             bot.execute(new SendMessage(chatId, "Прикрі новини, " + playerName + "! Відповідь неправильна! \n"
@@ -284,6 +389,8 @@ public class IQGameController {
                         updatedPlayer.setIqCounter((currentPlayer.getIqCounter() + moreIQ));
                         updatedPlayer.setUserFirstName(playerName);
                         updatedPlayer.setCanAnswer(false);
+                        updatedPlayer.setAllAnswers(currentPlayer.getAllAnswered()+1);
+                        updatedPlayer.setCorrectAnswers(currentPlayer.getCorrectAnswers()+ifAnswerIsCorrect);
                         updatedPlayer.setAttemptCounter((currentPlayer.getAttemptCounter() - 1));
                         updatedPlayer.setLastTimePlayed(currentPlayer.getLastTimePlayed());
                         players.replace(uniquePlayerID, currentPlayer, updatedPlayer);

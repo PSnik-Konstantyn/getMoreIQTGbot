@@ -6,6 +6,26 @@ public class PlayerInfo {
     private Long playerId;
     private Long chatId;
 
+    public Integer getAllAnswered() {
+        return allAnswers;
+    }
+
+    public void setAllAnswers(Integer allAnswers) {
+        this.allAnswers = allAnswers;
+    }
+
+    public Integer getCorrectAnswers() {
+        return correctAnswers;
+    }
+
+    public void setCorrectAnswers(Integer correctAnswers) {
+        this.correctAnswers = correctAnswers;
+    }
+
+    private Integer allAnswers;
+
+    private Integer correctAnswers;
+
     public Integer getAttemptCounter() {
         return attemptCounter;
     }

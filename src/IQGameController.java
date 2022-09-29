@@ -390,7 +390,7 @@ public class IQGameController {
                         updatedPlayer.setUserFirstName(playerName);
                         updatedPlayer.setCanAnswer(false);
                         updatedPlayer.setAllAnswers(currentPlayer.getAllAnswered()+1);
-                        updatedPlayer.setCorrectAnswers(currentPlayer.getCorrectAnswers()+ifAnswerIsCorrect);
+                        updatedPlayer.setCorrectAnswers((currentPlayer.getCorrectAnswers()+ifAnswerIsCorrect));
                         updatedPlayer.setAttemptCounter((currentPlayer.getAttemptCounter() - 1));
                         updatedPlayer.setLastTimePlayed(currentPlayer.getLastTimePlayed());
                         players.replace(uniquePlayerID, currentPlayer, updatedPlayer);

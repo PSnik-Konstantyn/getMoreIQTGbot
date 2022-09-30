@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="Code optimisation">
-      <change afterPath="$PROJECT_DIR$/system.properties" afterDir="false" />
+    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="Heroku settings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
     </list>
@@ -90,7 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664470199709</updated>
       <workItem from="1664470201282" duration="7374000" />
-      <workItem from="1664565269579" duration="7860000" />
+      <workItem from="1664565269579" duration="8497000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1664472314019</created>
@@ -141,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664571248976</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Heroku settings">
+      <created>1664573148868</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664573148868</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +170,7 @@
     <MESSAGE value=" Refactoring" />
     <MESSAGE value="Adding config file" />
     <MESSAGE value="Code optimisation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code optimisation" />
+    <MESSAGE value="Heroku settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Heroku settings" />
   </component>
 </project>

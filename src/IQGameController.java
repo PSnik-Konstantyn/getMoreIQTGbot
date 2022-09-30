@@ -32,7 +32,6 @@ public class IQGameController {
         }
 
 
-
         TelegramBot bot = new TelegramBot(TOKEN);
 
         Map<String, PlayerInfo> players = new HashMap<>();
@@ -145,16 +144,10 @@ public class IQGameController {
                         if (CorrectAnswersValues.size() >= 10) {
                             CorrectAnswersValues.subList(0, 9);
                             String finalList = "Список найрозумніших: \n";
-                            for (int i = 1; i <= CorrectAnswersValues.size(); i++) {
-                                String newRow;
-                                if (repeatableValues.contains(CorrectAnswersValues.get((i - 1)))) {
-                                    newRow = i + ".  " + listPlayersMap.get(CorrectAnswersValues.get((i - 1))) + " розв'язав(ла) " + ((CorrectAnswersValues.get((i - 1))) - 1) + " прикладів \n";
-                                } else {
-                                    newRow = i + ".  " + listPlayersMap.get(CorrectAnswersValues.get((i - 1))) + " розв'язав(ла) " + CorrectAnswersValues.get((i - 1)) + " прикладів \n";
-                                }
-                                finalList = finalList + newRow;
-                                System.out.println(newRow);
-                            }
+                            String firstStringValue = " розв'язав(ла) ";
+                            String secondStringValues = " прикладів \n";
+
+                           finalList = finalList + formListOfPlayers(CorrectAnswersValues, repeatableValues, listPlayersMap,  firstStringValue , secondStringValues );
 
                             bot.execute(new SendMessage(chatId,
                                     finalList
@@ -194,16 +187,10 @@ public class IQGameController {
                         Collections.reverse(IQValues);
 
                         String finalList = "Список гравців чату: \n";
-                        for (int i = 1; i <= IQValues.size(); i++) {
-                            String newRow;
-                            if (repeatableValues.contains(IQValues.get((i - 1)))) {
-                                newRow = i + ".  " + listPlayersMap.get(IQValues.get((i - 1))) + " = " + ((IQValues.get((i - 1))) - 1) + "IQ \n";
-                            } else {
-                                newRow = i + ".  " + listPlayersMap.get(IQValues.get((i - 1))) + " = " + IQValues.get((i - 1)) + "IQ \n";
-                            }
-                            finalList = finalList + newRow;
-                            System.out.println(newRow);
-                        }
+                        String firstStringValue = " = ";
+                        String secondStringValues = " IQ \n";
+
+                        finalList = finalList + formListOfPlayers(IQValues, repeatableValues, listPlayersMap,  firstStringValue , secondStringValues );
 
                         bot.execute(new SendMessage(chatId,
                                 finalList
@@ -239,16 +226,10 @@ public class IQGameController {
                         if (IQValues.size() >= 10) {
                             IQValues.subList(0, 9);
                             String finalList = "Список найрозумніших: \n";
-                            for (int i = 1; i <= IQValues.size(); i++) {
-                                String newRow;
-                                if (repeatableValues.contains(IQValues.get((i - 1)))) {
-                                    newRow = i + ".  " + listPlayersMap.get(IQValues.get((i - 1))) + " = " + ((IQValues.get((i - 1))) - 1) + "IQ \n";
-                                } else {
-                                    newRow = i + ".  " + listPlayersMap.get(IQValues.get((i - 1))) + " = " + IQValues.get((i - 1)) + "IQ \n";
-                                }
-                                finalList = finalList + newRow;
-                                System.out.println(newRow);
-                            }
+                            String firstStringValue = " = ";
+                            String secondStringValues = " IQ \n";
+
+                            finalList = finalList + formListOfPlayers(IQValues, repeatableValues, listPlayersMap,  firstStringValue , secondStringValues );
 
                             bot.execute(new SendMessage(chatId,
                                     finalList
@@ -395,6 +376,21 @@ public class IQGameController {
             System.out.println(answers);
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         });
+    }
+
+    private static String formListOfPlayers(ArrayList<Integer> correctAnswersValues, ArrayList<Integer> repeatableValues, Map<Integer, String> listPlayersMap, String firstStringValue, String secondStringValues) {
+        String finalList = "";
+        for (int i = 1; i <= correctAnswersValues.size(); i++) {
+            String newRow;
+            if (repeatableValues.contains(correctAnswersValues.get((i - 1)))) {
+                newRow = i + ".  " + listPlayersMap.get(correctAnswersValues.get((i - 1))) + firstStringValue + ((correctAnswersValues.get((i - 1))) - 1) + secondStringValues;
+            } else {
+                newRow = i + ".  " + listPlayersMap.get(correctAnswersValues.get((i - 1))) + firstStringValue + correctAnswersValues.get((i - 1)) + secondStringValues;
+            }
+            finalList = finalList + newRow;
+            System.out.println(newRow);
+        }
+        return finalList;
     }
 
 }

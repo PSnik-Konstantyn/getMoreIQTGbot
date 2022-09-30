@@ -147,7 +147,7 @@ public class IQGameController {
                             String firstStringValue = " розв'язав(ла) ";
                             String secondStringValues = " прикладів \n";
 
-                           finalList = finalList + formListOfPlayers(CorrectAnswersValues, repeatableValues, listPlayersMap,  firstStringValue , secondStringValues );
+                            finalList = finalList + formListOfPlayers(CorrectAnswersValues, repeatableValues, listPlayersMap, firstStringValue, secondStringValues);
 
                             bot.execute(new SendMessage(chatId,
                                     finalList
@@ -190,7 +190,7 @@ public class IQGameController {
                         String firstStringValue = " = ";
                         String secondStringValues = " IQ \n";
 
-                        finalList = finalList + formListOfPlayers(IQValues, repeatableValues, listPlayersMap,  firstStringValue , secondStringValues );
+                        finalList = finalList + formListOfPlayers(IQValues, repeatableValues, listPlayersMap, firstStringValue, secondStringValues);
 
                         bot.execute(new SendMessage(chatId,
                                 finalList
@@ -229,7 +229,7 @@ public class IQGameController {
                             String firstStringValue = " = ";
                             String secondStringValues = " IQ \n";
 
-                            finalList = finalList + formListOfPlayers(IQValues, repeatableValues, listPlayersMap,  firstStringValue , secondStringValues );
+                            finalList = finalList + formListOfPlayers(IQValues, repeatableValues, listPlayersMap, firstStringValue, secondStringValues);
 
                             bot.execute(new SendMessage(chatId,
                                     finalList
@@ -372,8 +372,6 @@ public class IQGameController {
                     }
                 }
             });
-            System.out.println(players);
-            System.out.println(answers);
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         });
     }
@@ -388,7 +386,6 @@ public class IQGameController {
                 newRow = i + ".  " + listPlayersMap.get(correctAnswersValues.get((i - 1))) + firstStringValue + correctAnswersValues.get((i - 1)) + secondStringValues;
             }
             finalList = finalList + newRow;
-            System.out.println(newRow);
         }
         return finalList;
     }

@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="Adding config file">
+    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="Code optimisation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IQGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IQGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.properties" afterDir="false" />
     </list>
@@ -89,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664470199709</updated>
       <workItem from="1664470201282" duration="7374000" />
-      <workItem from="1664565269579" duration="2479000" />
+      <workItem from="1664565269579" duration="4974000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1664472314019</created>
@@ -119,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664566940009</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Code optimisation">
+      <created>1664567929925</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664567929925</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +149,7 @@
     <MESSAGE value="adding /top10correctAnswers , /myAccuracy commands. Refactoring" />
     <MESSAGE value=" Refactoring" />
     <MESSAGE value="Adding config file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding config file" />
+    <MESSAGE value="Code optimisation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code optimisation" />
   </component>
 </project>

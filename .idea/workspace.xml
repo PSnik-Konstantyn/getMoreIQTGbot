@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="Heroku settings">
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-    </list>
+    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="Heroku settings" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +100,7 @@
       <workItem from="1664565269579" duration="8497000" />
       <workItem from="1664650162584" duration="690000" />
       <workItem from="1665687070148" duration="1896000" />
-      <workItem from="1665689181986" duration="2841000" />
+      <workItem from="1665689181986" duration="3445000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1664472314019</created>

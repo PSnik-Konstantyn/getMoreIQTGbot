@@ -14,6 +14,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.github.pengrad</groupId>
+            <artifactId>java-telegram-bot-api</artifactId>
+            <version>6.2.0</version>
+        </dependency>
+
+    </dependencies>
+
+
     <build>
         <plugins>
             <plugin>

@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="Heroku settings">
-      <change afterPath="$PROJECT_DIR$/target/classes/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/herokuTry/DateUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/herokuTry/IQGameController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/herokuTry/PlayerInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/herokuTry/PlayerStats.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +102,7 @@
       <workItem from="1664565269579" duration="8497000" />
       <workItem from="1664650162584" duration="690000" />
       <workItem from="1665687070148" duration="1896000" />
-      <workItem from="1665689181986" duration="1374000" />
+      <workItem from="1665689181986" duration="1720000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1664472314019</created>
@@ -192,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665689943757</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Heroku settings">
+      <created>1665690700251</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1665690700251</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

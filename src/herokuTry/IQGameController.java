@@ -1,12 +1,12 @@
-
+package herokuTry;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.request.SendMessage;
+import herokuTry.DateUtil;
 
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,18 +18,18 @@ import static java.lang.Integer.parseInt;
 public class IQGameController {
     public static void main(String[] args) {
 
-        String TOKEN = "";
+        String TOKEN = "5556417281:AAE8ChxwjqtBGy_vwdhoXKiYumjsZGcjey8";
 
-        try {
-            String configFilePath = "src/config.properties";
-            FileInputStream propsInput = new FileInputStream(configFilePath);
-            Properties prop = new Properties();
-            prop.load(propsInput);
-            TOKEN = prop.getProperty("TOKEN");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            String configFilePath = "src/config.properties";
+//            FileInputStream propsInput = new FileInputStream(configFilePath);
+//            Properties prop = new Properties();
+//            prop.load(propsInput);
+//            TOKEN = prop.getProperty("TOKEN");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
         TelegramBot bot = new TelegramBot(TOKEN);
@@ -42,7 +42,7 @@ public class IQGameController {
 
             System.out.println(updates);
             updates.forEach(update -> {
-
+                System.out.println(update);
                 if (!(update.message() == null) && !(update.message().text() == null)) {
 
                     Long playerId = update.message().from().id();
@@ -372,6 +372,7 @@ public class IQGameController {
                     }
                 }
             });
+
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         });
     }

@@ -1,3 +1,4 @@
+package herokuTry;
 
 public class PlayerStats implements Comparable<PlayerStats> {
 

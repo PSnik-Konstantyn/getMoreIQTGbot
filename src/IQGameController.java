@@ -1,9 +1,6 @@
-package herokuTry;
-
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.request.SendMessage;
-import herokuTry.DateUtil;
 
 
 import java.io.FileInputStream;

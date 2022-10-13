@@ -1,5 +1,3 @@
-package herokuTry;
-
 public class PlayerStats implements Comparable<PlayerStats> {
 
     private String playerName;

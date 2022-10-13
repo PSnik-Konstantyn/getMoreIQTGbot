@@ -1,3 +1,3 @@
 buildpacks:set heroku/java
-web: java $JAVA_OPTS -cp /home/konstantyn/IdeaProjects/getMoreIQTGbot/target/classes/herokuTry/IQGameController.class
+worker: java -Xmx300m -Xss512k -XX:CICompilerCount=2 -Dfile.encoding=UTF-8 -cp ./target/classes:./target/dependency/* IQGameController
 java.runtime.version=19

@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="Heroku settings" />
+    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="Heroku settings">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/herokuTry/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/herokuTry/IQGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IQGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/herokuTry/PlayerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/herokuTry/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerStats.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +71,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.23563218"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -76,7 +83,7 @@
   </component>
   <component name="RunManager">
     <configuration name="IQGameController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="herokuTry.IQGameController" />
+      <option name="MAIN_CLASS_NAME" value="IQGameController" />
       <module name="getMoreIQTGbot" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -100,7 +107,7 @@
       <workItem from="1664565269579" duration="8497000" />
       <workItem from="1664650162584" duration="690000" />
       <workItem from="1665687070148" duration="1896000" />
-      <workItem from="1665689181986" duration="3445000" />
+      <workItem from="1665689181986" duration="4064000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1664472314019</created>

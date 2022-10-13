@@ -1,5 +1,3 @@
-package herokuTry;
-
 import java.util.Date;
 
 public class PlayerInfo {

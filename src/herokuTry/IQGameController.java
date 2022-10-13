@@ -40,7 +40,6 @@ public class IQGameController {
 
         bot.setUpdatesListener(updates -> {
 
-            System.out.println(updates);
             updates.forEach(update -> {
                 System.out.println(update);
                 if (!(update.message() == null) && !(update.message().text() == null)) {

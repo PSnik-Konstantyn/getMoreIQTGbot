@@ -18,18 +18,18 @@ import static java.lang.Integer.parseInt;
 public class IQGameController {
     public static void main(String[] args) {
 
-        String TOKEN = "5556417281:AAE8ChxwjqtBGy_vwdhoXKiYumjsZGcjey8";
+        String TOKEN = "";
 
-//        try {
-//            String configFilePath = "src/config.properties";
-//            FileInputStream propsInput = new FileInputStream(configFilePath);
-//            Properties prop = new Properties();
-//            prop.load(propsInput);
-//            TOKEN = prop.getProperty("TOKEN");
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            String configFilePath = "src/config.properties";
+            FileInputStream propsInput = new FileInputStream(configFilePath);
+            Properties prop = new Properties();
+            prop.load(propsInput);
+            TOKEN = prop.getProperty("TOKEN");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         TelegramBot bot = new TelegramBot(TOKEN);

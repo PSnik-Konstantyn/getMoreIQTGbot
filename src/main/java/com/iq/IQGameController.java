@@ -45,11 +45,11 @@ public class IQGameController {
 
                     Long playerId = update.message().from().id();
                     Long chatId = update.message().chat().id();
-                    int newAttempts = 10;
+                    int newAttempts = 3;
                     String playerName = update.message().from().firstName();
                     String playerMessageText = update.message().text();
                     String uniquePlayerID = ((playerId.toString()) + "_" + (chatId.toString()));
-                    String sourceDate = "2022-08-25";
+                    String sourceDate = "2022-09-25";
                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                     Random addingIQ = new Random();
 
@@ -83,26 +83,23 @@ public class IQGameController {
                                 + "Якщо неправильно, то ти втратишь вже отримане \n"
                                 + "Гарної гри!"));
                     }
-//                    else if (playerMessageText.equals("/rulesIQGame") || playerMessageText.equals("/rulesIQGame@KostiasBot")) {
-//                        bot.execute(new SendMessage(chatId,
-//                                """
-//                                        Вводи команду /getMoreIQ та отримуй рівняння\s
-//                                        Запиши правильну відповідь (лише цифру) \s
-//                                        Та отримуй винагороду у вигляді IQ! \s
-//                                        Якщо неправильно, то ти втратишь вже отримане!\s
-//                                        """));
-//                    } else if (playerMessageText.equals("/help") || playerMessageText.equals("/help@KostiasBot")) {
-//                        bot.execute(new SendMessage(chatId,
-//                                """
-//                                        /getMoreIQ - збільшити свій IQ\s
-//                                        /rulesIQGame - правила гри \s
-//                                        /myIQ - ваша кількість IQ\s
-//                                        /myAccuracy - відсоток правильних відповідей \s
-//                                        /listAllPlayers - список всіх гравців\s
-//                                        /top10Smartest - топ 10 найрозумніших \s
-//                                        /top10CorrectAnswers - топ 10 по правильним відповідям \s
-//                                        """));
-//                    }
+                    else if (playerMessageText.equals("/rulesIQGame") || playerMessageText.equals("/rulesIQGame@KostiasBot")) {
+                        bot.execute(new SendMessage(chatId,
+                                   "Вводи команду /getMoreIQ та отримуй рівняння \n" +
+                                        "Запиши правильну відповідь (лише цифру) \n" +
+                                        "Та отримуй винагороду у вигляді IQ! \n" +
+                                        "Якщо неправильно, то ти втратишь вже отримане!\n"));
+
+                    } else if (playerMessageText.equals("/help") || playerMessageText.equals("/help@KostiasBot")) {
+                        bot.execute(new SendMessage(chatId,
+                                  " /getMoreIQ - збільшити свій IQ\n" +
+                                       " /rulesIQGame - правила гри \n" +
+                                        " /myIQ - ваша кількість IQ\n" +
+                                       " /myAccuracy - відсоток правильних відповідей \n" +
+                                       " /listAllPlayers - список всіх гравців\n " +
+                                       " /top10Smartest - топ 10 найрозумніших \n " +
+                                       " /top10CorrectAnswers - топ 10 по правильним відповідям"));
+                    }
                     else if (playerMessageText.equals("/myAccuracy") || playerMessageText.equals("/myAccuracy@KostiasBot")) {
 
                         PlayerInfo currentPlayer = players.get(uniquePlayerID);
@@ -338,7 +335,7 @@ public class IQGameController {
                                     && !playerMessageText.contains("м")
                                     && !playerMessageText.contains("н")
                                     && !playerMessageText.contains("д")
-                                    && playerMessageText.length() <= 8
+                                    && playerMessageText.length() <= 5
                     ) {
                         PlayerInfo currentPlayer = players.get(uniquePlayerID);
                         int moreIQ;

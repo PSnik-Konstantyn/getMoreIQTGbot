@@ -1,3 +1,5 @@
+package com.iq;
+
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.request.SendMessage;
@@ -80,26 +82,28 @@ public class IQGameController {
                                 + "Так, якщо ти відповіси правильно, то твій IQ збільшиться \n"
                                 + "Якщо неправильно, то ти втратишь вже отримане \n"
                                 + "Гарної гри!"));
-                    } else if (playerMessageText.equals("/rulesIQGame") || playerMessageText.equals("/rulesIQGame@KostiasBot")) {
-                        bot.execute(new SendMessage(chatId,
-                                """
-                                        Вводи команду /getMoreIQ та отримуй рівняння\s
-                                        Запиши правильну відповідь (лише цифру) \s
-                                        Та отримуй винагороду у вигляді IQ! \s
-                                        Якщо неправильно, то ти втратишь вже отримане!\s
-                                        """));
-                    } else if (playerMessageText.equals("/help") || playerMessageText.equals("/help@KostiasBot")) {
-                        bot.execute(new SendMessage(chatId,
-                                """
-                                        /getMoreIQ - збільшити свій IQ\s
-                                        /rulesIQGame - правила гри \s
-                                        /myIQ - ваша кількість IQ\s
-                                        /myAccuracy - відсоток правильних відповідей \s
-                                        /listAllPlayers - список всіх гравців\s
-                                        /top10Smartest - топ 10 найрозумніших \s
-                                        /top10CorrectAnswers - топ 10 по правильним відповідям \s
-                                        """));
-                    } else if (playerMessageText.equals("/myAccuracy") || playerMessageText.equals("/myAccuracy@KostiasBot")) {
+                    }
+//                    else if (playerMessageText.equals("/rulesIQGame") || playerMessageText.equals("/rulesIQGame@KostiasBot")) {
+//                        bot.execute(new SendMessage(chatId,
+//                                """
+//                                        Вводи команду /getMoreIQ та отримуй рівняння\s
+//                                        Запиши правильну відповідь (лише цифру) \s
+//                                        Та отримуй винагороду у вигляді IQ! \s
+//                                        Якщо неправильно, то ти втратишь вже отримане!\s
+//                                        """));
+//                    } else if (playerMessageText.equals("/help") || playerMessageText.equals("/help@KostiasBot")) {
+//                        bot.execute(new SendMessage(chatId,
+//                                """
+//                                        /getMoreIQ - збільшити свій IQ\s
+//                                        /rulesIQGame - правила гри \s
+//                                        /myIQ - ваша кількість IQ\s
+//                                        /myAccuracy - відсоток правильних відповідей \s
+//                                        /listAllPlayers - список всіх гравців\s
+//                                        /top10Smartest - топ 10 найрозумніших \s
+//                                        /top10CorrectAnswers - топ 10 по правильним відповідям \s
+//                                        """));
+//                    }
+                    else if (playerMessageText.equals("/myAccuracy") || playerMessageText.equals("/myAccuracy@KostiasBot")) {
 
                         PlayerInfo currentPlayer = players.get(uniquePlayerID);
                         int allAnswers = currentPlayer.getAllAnswered();

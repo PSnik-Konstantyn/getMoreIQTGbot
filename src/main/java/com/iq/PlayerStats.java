@@ -1,3 +1,5 @@
+package com.iq;
+
 public class PlayerStats implements Comparable<PlayerStats> {
 
     private String playerName;

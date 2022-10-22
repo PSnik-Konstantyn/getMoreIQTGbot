@@ -82,25 +82,23 @@ public class IQGameController {
                                 + "Так, якщо ти відповіси правильно, то твій IQ збільшиться \n"
                                 + "Якщо неправильно, то ти втратишь вже отримане \n"
                                 + "Гарної гри!"));
-                    }
-                    else if (playerMessageText.equals("/rulesIQGame") || playerMessageText.equals("/rulesIQGame@KostiasBot")) {
+                    } else if (playerMessageText.equals("/rulesIQGame") || playerMessageText.equals("/rulesIQGame@KostiasBot")) {
                         bot.execute(new SendMessage(chatId,
-                                   "Вводи команду /getMoreIQ та отримуй рівняння \n" +
+                                "Вводи команду /getMoreIQ та отримуй рівняння \n" +
                                         "Запиши правильну відповідь (лише цифру) \n" +
                                         "Та отримуй винагороду у вигляді IQ! \n" +
                                         "Якщо неправильно, то ти втратишь вже отримане!\n"));
 
                     } else if (playerMessageText.equals("/help") || playerMessageText.equals("/help@KostiasBot")) {
                         bot.execute(new SendMessage(chatId,
-                                  " /getMoreIQ - збільшити свій IQ\n" +
-                                       " /rulesIQGame - правила гри \n" +
-                                        " /myIQ - ваша кількість IQ\n" +
-                                       " /myAccuracy - відсоток правильних відповідей \n" +
-                                       " /listAllPlayers - список всіх гравців\n " +
-                                       " /top10Smartest - топ 10 найрозумніших \n " +
-                                       " /top10CorrectAnswers - топ 10 по правильним відповідям"));
-                    }
-                    else if (playerMessageText.equals("/myAccuracy") || playerMessageText.equals("/myAccuracy@KostiasBot")) {
+                                "/getMoreIQ - збільшити свій IQ\n" +
+                                        "/rulesIQGame - правила гри \n" +
+                                        "/myIQ - ваша кількість IQ\n" +
+                                        "/myAccuracy - відсоток правильних відповідей \n" +
+                                        "/listAllPlayers - список всіх гравців\n " +
+                                        "/top10Smartest - топ 10 найрозумніших \n " +
+                                        "/top10CorrectAnswers - топ 10 по правильним відповідям"));
+                    } else if (playerMessageText.equals("/myAccuracy") || playerMessageText.equals("/myAccuracy@KostiasBot")) {
 
                         PlayerInfo currentPlayer = players.get(uniquePlayerID);
                         int allAnswers = currentPlayer.getAllAnswered();

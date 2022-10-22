@@ -234,7 +234,7 @@ public class IQGameController {
                                     playerName + " для початку зберіть 10 гравців, а потім вже будуть такі рейтинги"
                             ));
                         }
-                    } else if (playerMessageText.equals("/my_iq") || playerMessageText.equals("/my_iq@KostiasBot")) {
+                    } else if (playerMessageText.equals("/my_iq") || playerMessageText.equals("/my_iq@Game_get_IQ_bot")) {
                         PlayerInfo currentPlayer = players.get(uniquePlayerID);
                         bot.execute(new SendMessage(chatId,
                                 "Зараз," + playerName + " ,твій IQ: " + currentPlayer.getIqCounter() + " \n"

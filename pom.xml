@@ -14,7 +14,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.release>1.8</maven.compiler.release>
     </properties>
 
     <dependencies>
@@ -23,14 +23,9 @@
         <dependency>
             <groupId>com.github.pengrad</groupId>
             <artifactId>java-telegram-bot-api</artifactId>
-            <version>6.0.1</version>
+            <version>6.2.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.telegram</groupId>
-            <artifactId>telegrambots</artifactId>
-            <version>6.0.0</version>
-        </dependency>
 
     </dependencies>
 
@@ -55,7 +50,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
-                    <release>11</release>
+                    <release>1.8</release>
                 </configuration>
             </plugin>
 

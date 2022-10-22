@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="testing">
+    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iq/IQGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iq/IQGameController.java" afterDir="false" />
     </list>
@@ -121,7 +121,7 @@
       <workItem from="1666205164883" duration="42000" />
       <workItem from="1666357689422" duration="874000" />
       <workItem from="1666435726968" duration="1551000" />
-      <workItem from="1666437292577" duration="11151000" />
+      <workItem from="1666437292577" duration="12371000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1664472314019</created>
@@ -333,7 +333,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666456416912</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Adding more functions">
+      <created>1666464649720</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1666464649720</updated>
+    </task>
+    <task id="LOCAL-00032" summary="refactoring">
+      <created>1666464779227</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1666464779227</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +372,8 @@
     <MESSAGE value="Code optimisation" />
     <MESSAGE value="Heroku settings" />
     <MESSAGE value="testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing" />
+    <MESSAGE value="Adding more functions" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
 </project>

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="added testing system(massive hardcode) and working listing system">
+    <list default="true" id="487b73fc-0932-43c7-85bf-b58627edf1a8" name="Changes" comment="done !">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iq/IQGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iq/IQGameController.java" afterDir="false" />
     </list>
@@ -56,7 +56,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/konstantyn/IdeaProjects/getMoreIQTGbot&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kostiantyn/IdeaProjects/getMoreIQTGbot&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -121,7 +121,12 @@
       <workItem from="1666435726968" duration="1551000" />
       <workItem from="1666437292577" duration="12811000" />
       <workItem from="1673716873736" duration="82000" />
-      <workItem from="1673716966605" duration="7900000" />
+      <workItem from="1673716966605" duration="8757000" />
+      <workItem from="1673809714302" duration="626000" />
+      <workItem from="1674851887434" duration="22000" />
+      <workItem from="1674853068336" duration="2555000" />
+      <workItem from="1674908150110" duration="1467000" />
+      <workItem from="1675182205083" duration="447000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1664472314019</created>
@@ -361,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673782063220</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="done !">
+      <created>1673799581998</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1673799581998</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,6 +402,7 @@
     <MESSAGE value="refactoring" />
     <MESSAGE value="Massive refactoring" />
     <MESSAGE value="added testing system(massive hardcode) and working listing system" />
-    <option name="LAST_COMMIT_MESSAGE" value="added testing system(massive hardcode) and working listing system" />
+    <MESSAGE value="done !" />
+    <option name="LAST_COMMIT_MESSAGE" value="done !" />
   </component>
 </project>

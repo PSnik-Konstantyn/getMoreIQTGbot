@@ -41,7 +41,6 @@ public class IQGameController {
         bot.setUpdatesListener(updates -> {
 
             updates.forEach(update -> {
-                System.out.println(update);
                 if (!(update.message() == null) && !(update.message().text() == null)) {
 
                     Long playerId = update.message().from().id();
@@ -278,45 +277,8 @@ public class IQGameController {
                             players.get(uniquePlayerID).isCanAnswer()
                                     && answers.containsKey(uniquePlayerID)
                                     && answers.get(uniquePlayerID) != null
-                                    && (playerMessageText.contains("0")
-                                    || playerMessageText.contains("1")
-                                    || playerMessageText.contains("2")
-                                    || playerMessageText.contains("3")
-                                    || playerMessageText.contains("4")
-                                    || playerMessageText.contains("5")
-                                    || playerMessageText.contains("6")
-                                    || playerMessageText.contains("7")
-                                    || playerMessageText.contains("8")
-                                    || playerMessageText.contains("9")
-                                    || playerMessageText.contains("10"))
-                                    && !playerMessageText.contains("й")
-                                    && !playerMessageText.contains("!")
-                                    && !playerMessageText.contains("+")
-                                    && !playerMessageText.contains("*")
-                                    && !playerMessageText.contains("ф")
-                                    && !playerMessageText.contains("а")
-                                    && !playerMessageText.contains(")")
-                                    && !playerMessageText.contains("?")
-                                    && !playerMessageText.contains("f")
-                                    && !playerMessageText.contains("q")
-                                    && !playerMessageText.contains("w")
-                                    && !playerMessageText.contains("k")
-                                    && !playerMessageText.contains("e")
-                                    && !playerMessageText.contains("r")
-                                    && !playerMessageText.contains("t")
-                                    && !playerMessageText.contains("a")
-                                    && !playerMessageText.contains("(")
-                                    && !playerMessageText.contains("п")
-                                    && !playerMessageText.contains("р")
-                                    && !playerMessageText.contains("ц")
-                                    && !playerMessageText.contains("о")
-                                    && !playerMessageText.contains("к")
-                                    && !playerMessageText.contains("л")
-                                    && !playerMessageText.contains("м")
-                                    && !playerMessageText.contains("н")
-                                    && !playerMessageText.contains("д")
-                                    && playerMessageText.length() <= 4
-                    ) {
+                                    && (playerMessageText.matches("[0-9]+"))
+                                    && playerMessageText.length() <= 4) {
                         PlayerInfo currentPlayer = players.get(uniquePlayerID);
                         int moreIQ;
                         int plusIQ = addingIQ.nextInt(10);
